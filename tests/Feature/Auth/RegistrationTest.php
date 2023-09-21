@@ -20,8 +20,26 @@ class RegistrationTest extends TestCase
     public function test_new_users_can_register(): void
     {
         $response = $this->post('/register', [
-            'name' => 'Test User',
+            'first_name' => 'Testy',
+            'middle_name' => 'Tester',
+            'last_name' => 'McTesterson',
+            'display_name' => 'testUser',
             'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $response->assertRedirect(RouteServiceProvider::HOME);
+    }
+
+    public function test_new_users_can_register_without_a_middle_name(): void
+    {
+        $response = $this->post('/register', [
+            'first_name' => 'Testy1',
+            'last_name' => 'McTesterson2',
+            'display_name' => 'testUser2',
+            'email' => 'testy1@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
