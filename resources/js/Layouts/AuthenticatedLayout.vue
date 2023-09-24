@@ -22,7 +22,9 @@ const showingNavigationDropdown = ref(false);
                             <!-- Logo -->
                             <div class="flex items-center shrink-0">
                                 <Link :href="route('dashboard')">
-                                <ApplicationLogo class="block w-auto text-gray-800 fill-current h-9 dark:text-gray-200" />
+                                <img src="/images/appLogo.svg"
+                                     alt="Metis ERP Logo. An eye and star within a circle"
+                                     class="h-10">
                                 </Link>
                             </div>
 
@@ -144,5 +146,4 @@ const showingNavigationDropdown = ref(false);
                 <slot />
             </main>
         </div>
-    </div>
-</template>
+    </div></template>
