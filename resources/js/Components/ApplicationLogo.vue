@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="flex flex-col ">) 
+    <div class="flex flex-col ">
         <img src="images/appLogo.svg"
              alt="">
         <p v-if="showText"
