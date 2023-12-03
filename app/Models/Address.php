@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Address extends Model
 {
@@ -23,4 +24,14 @@ class Address extends Model
         'postal_code',
         'country',
     ];
+
+    /**
+     * Get the parent addressable model
+     *
+     * An address can belong to one of several models (User, Location, etc.)
+     */
+    public function addressable(): MorphTo
+    {
+        return $this->morphTo();
+    }
 }

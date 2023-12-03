@@ -12,10 +12,14 @@ class AddressSeeder extends Seeder
      */
     public function run(): void
     {
-        Address::factory(10)->create();
+        //For each User, seed an address
+        \App\Models\User::all()->each(function ($user) {
+            $user->address()->save(Address::factory()->make(
+                [
+                    'attention' => "$user->first_name $user->last_name",
+                ]
+            ));
+        });
 
-        Address::factory(5)->create([
-            'line_2' => null,
-        ]);
     }
 }
