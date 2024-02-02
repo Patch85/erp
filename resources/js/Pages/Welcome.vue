@@ -9,12 +9,8 @@ defineProps({
     canRegister: {
         type: Boolean,
     },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
+    currentYear: {
+        type: Number,
         required: true,
     },
 });
@@ -187,12 +183,8 @@ defineProps({
             <div class="flex justify-center px-6 mt-16 sm:items-center sm:justify-between">
                 <div class="text-sm text-center text-gray-500 dark:text-gray-400 sm:text-left">
                     <div class="flex items-center gap-4">
-                        <p>Metis ERP: &copy; 2023</p>
+                        <p>Metis ERP &TRADE; &COPY; 2023-{{ currentYear }}</p>
                     </div>
-                </div>
-
-                <div class="ml-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                    Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
                 </div>
             </div>
         </div>
