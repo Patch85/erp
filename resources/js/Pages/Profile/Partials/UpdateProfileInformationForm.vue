@@ -55,7 +55,7 @@ const form = useForm({
 
             <div>
                 <InputLabel for="middle_name"
-                            value="First Name" />
+                            value="Middle Name" />
 
                 <TextInput id="middle_name"
                            type="text"
