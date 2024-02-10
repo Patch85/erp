@@ -44,7 +44,7 @@ class AddressTest extends TestCase
 
         $address->update(['addressable_id' => 2]);
         $address->refresh();
- 
+
         $this->assertEquals(1, $address->addressable_id);
     }
 
@@ -57,7 +57,7 @@ class AddressTest extends TestCase
 
         $address->update(['addressable_type' => 'App\Models\Company']);
         $address->refresh();
-        
+
         $this->assertEquals('App\Models\User', $address->addressable_type);
     }
 
@@ -80,9 +80,15 @@ class AddressTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $address = Address::factory()->create([
-            'addressable_id' => $user->id,
+        $address = $user->address()->create([
             'addressable_type' => 'App\Models\User',
+            'addressable_id' => $user->id,
+            'attention' => $user->fullName(),
+            'street_1' => '123 Main St',
+            'city' => 'Anytown',
+            'state' => 'NY',
+            'postal_code' => '12345',
+            'country_code' => 'USA',
         ]);
 
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Relations\MorphTo', $address->addressable());
