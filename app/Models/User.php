@@ -45,4 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function fullName(): string
+    {
+        return match (true) {
+            isset($this->middle_name) => "{$this->first_name} {$this->middle_name} {$this->last_name}",
+            default => "{$this->first_name} {$this->last_name}",
+        };
+    }
 }
