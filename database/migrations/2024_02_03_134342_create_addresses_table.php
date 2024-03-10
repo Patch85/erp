@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('street_1');
             $table->string('street_2')->nullable();
             $table->string('city');
-            $table->string('state');
+            $table->string('state')->nullable();
             $table->string('postal_code');
             $table->string('country_code', 3);
             $table->timestamps();
