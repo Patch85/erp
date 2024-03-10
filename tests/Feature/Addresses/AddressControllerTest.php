@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature\Addreses;
 
 use App\Models\Address;
 use App\Models\User;
