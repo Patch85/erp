@@ -61,8 +61,6 @@ const form = useForm({
                            type="text"
                            class="block w-full mt-1"
                            v-model="form.middle_name"
-                           required
-                           autofocus
                            autocomplete="middle name" />
 
                 <InputError class="mt-2"
@@ -78,7 +76,6 @@ const form = useForm({
                            class="block w-full mt-1"
                            v-model="form.last_name"
                            required
-                           autofocus
                            autocomplete="last name" />
 
                 <InputError class="mt-2"
@@ -94,7 +91,6 @@ const form = useForm({
                            class="block w-full mt-1"
                            v-model="form.display_name"
                            required
-                           autofocus
                            autocomplete="display name" />
 
                 <InputError class="mt-2"
