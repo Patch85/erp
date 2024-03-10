@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Address;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,9 +19,18 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
+        $address = $request->user()->address()->first();
+        $newAddress = $address instanceof Address ? false : true;
+        $addressRoute = $newAddress
+            ? route('user.address.store', $request->user())
+            : route('addresses.update', $address);
+
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
+            'address' => $address,
+            'newAddress' => $newAddress,
+            'addressRoute' => $addressRoute,
         ]);
     }
 
@@ -50,6 +60,8 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+
+        $user->address()?->delete();
 
         Auth::logout();
 
