@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('postal_code');
             $table->string('country_code', 3);
             $table->timestamps();
+            $table->blameable();
         });
     }
 
