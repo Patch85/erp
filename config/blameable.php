@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\App;
+use App\Models\User;
+
 return [
 
     /*
@@ -30,7 +33,7 @@ return [
     |
     */
 
-    'user' => \app\Models\User::class,
+    'user' => User::class,
 
     /*
     |--------------------------------------------------------------------------

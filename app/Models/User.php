@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use RichanFongdasen\EloquentBlameable\BlameableTrait;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use BlameableTrait, HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.

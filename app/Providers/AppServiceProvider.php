@@ -21,8 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blueprint::macro('blameable', function () {
-            $this->string('created_by');
-            $this->string('updated_by');
+            $this->integer('created_by')->nullable();
+            $this->integer('updated_by')->nullable();
         });
     }
 }

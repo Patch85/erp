@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use RichanFongdasen\EloquentBlameable\BlameableTrait;
 
 class Address extends Model
 {
-    use HasFactory;
+    use BlameableTrait, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +26,7 @@ class Address extends Model
         'postal_code',
         'country_code',
     ];
+
 
     public function addressable(): MorphTo
     {
